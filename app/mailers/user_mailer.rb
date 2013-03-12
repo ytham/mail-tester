@@ -1,7 +1,7 @@
 class UserMailer < ActionMailer::Base
   default from: "ufg@happywalr.us"
 
-  def welcome_email(user)
+  def welcome(user)
     @user = user
     email_with_name = "#{@user.name} <#{@user.email}>"
     @url = "http://www.facethelight.com"
