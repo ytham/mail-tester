@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
 
   def welcome(user)
     @user = user
-    #email_with_name = "#{@user.name} <#{@user.email}>"
+    email_address_with_name = "#{@user.name} <#{@user.email}>"
     @url = "http://www.facethelight.com"
     mail(to: user.email_address_with_name, 
          subject: "Face The Light",
