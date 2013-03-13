@@ -42,15 +42,18 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
 
-    respond_to do |format|
+    #respond_to do |format|
       if @user.save
         UserMailer.welcome(@user).deliver
-
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render json: @user, status: :created, location: @user }
+        respond_to do |format|
+          format.html { redirect_to @user, notice: 'User was successfully created.' }
+          format.json { render json: @user, status: :created, location: @user }
+        end
       else
-        format.html { render action: "new" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        respond_to do |format|
+          format.html { render action: "new" }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
