@@ -10,8 +10,9 @@ class UserMailer < ActionMailer::Base
          #template_path: 'notifications',
          #template_name: 'another')
         ) do |format|
-      format.text
-      format.html
+          format.text
+          format.html
+        end
   end
 
   def receive(email)
