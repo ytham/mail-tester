@@ -5,8 +5,8 @@ class UserMailer < ActionMailer::Base
     @user = user
     email_address_with_name = "#{@user.name} <#{@user.email}>"
     @url = "http://www.facethelight.com"
-    mail(to: user.email_address_with_name, 
-         subject: "Face The Light",
+    mail(to: email_address_with_name, 
+         subject: "Face The Light"
          #template_path: 'notifications',
          #template_name: 'another')
         ) do |format|
