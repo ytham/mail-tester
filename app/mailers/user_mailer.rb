@@ -3,12 +3,15 @@ class UserMailer < ActionMailer::Base
 
   def welcome(user)
     @user = user
-    email_with_name = "#{@user.name} <#{@user.email}>"
+    #email_with_name = "#{@user.name} <#{@user.email}>"
     @url = "http://www.facethelight.com"
-    mail(to: email_with_name, 
+    mail(to: user.email_address_with_name, 
          subject: "Face The Light",
-         template_path: 'notifications',
-         template_name: 'another')
+         #template_path: 'notifications',
+         #template_name: 'another')
+        ) do |format|
+      format.text
+      format.html
   end
 
   def receive(email)
